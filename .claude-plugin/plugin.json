@@ -2,9 +2,34 @@
   "name": "everysignal",
   "description": "Audit AI-written marketing (copy, landing pages, emails, ads, SEO) against teardowns of real companies and measured conversion rates.",
   "version": "1.0.0",
-  "author": {"name": "Every Signal (mjonesone LLC)", "email": "hello@everysignal.com", "url": "https://everysignal.com"},
+  "author": {
+    "name": "Every Signal (mjonesone LLC)",
+    "email": "hello@everysignal.com",
+    "url": "https://everysignal.com"
+  },
   "homepage": "https://everysignal.com/connect/",
   "repository": "https://github.com/schoettle-cmd/everysignal-mcp",
   "license": "MIT",
-  "keywords": ["marketing", "seo", "landing-page", "ads", "competitive-intelligence", "mcp"]
+  "keywords": [
+    "marketing",
+    "seo",
+    "landing-page",
+    "ads",
+    "competitive-intelligence",
+    "mcp"
+  ],
+  "icon": "./logo.png",
+  "privacyPolicyUrl": "https://everysignal.com/privacy/",
+  "termsOfServiceUrl": "https://everysignal.com/terms/",
+  "documentationUrl": "https://everysignal.com/connect/",
+  "supportUrl": "mailto:hello@everysignal.com",
+  "userConfig": {
+    "everysignal_api_key": {
+      "type": "string",
+      "title": "Every Signal API key",
+      "description": "Create a key at https://everysignal.com/app/keys (starts with es_). The first key comes with 50 free credits.",
+      "required": true,
+      "sensitive": true
+    }
+  }
 }

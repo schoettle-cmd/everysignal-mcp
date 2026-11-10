@@ -3,7 +3,9 @@
     "everysignal": {
       "type": "http",
       "url": "https://everysignal.com/mcp",
-      "headers": {"Authorization": "Bearer ${EVERYSIGNAL_API_KEY}"}
+      "headers": {
+        "Authorization": "Bearer ${user_config.everysignal_api_key}"
+      }
     }
   }
 }
