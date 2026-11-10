@@ -1,0 +1,21 @@
+{
+  "name": "everysignal",
+  "description": "Audit AI-written marketing (copy, landing pages, emails, ads, SEO) against teardowns of real companies and measured conversion rates.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Every Signal (mjonesone LLC)",
+    "email": "hello@everysignal.com",
+    "url": "https://everysignal.com"
+  },
+  "homepage": "https://everysignal.com/connect/",
+  "repository": "https://github.com/schoettle-cmd/everysignal-mcp",
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "seo",
+    "landing-page",
+    "ads",
+    "competitive-intelligence",
+    "mcp"
+  ]
+}
