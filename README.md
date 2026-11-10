@@ -41,6 +41,9 @@ ChatGPT: create a custom GPT, add an Action, import `https://everysignal.com/api
 
 ## Install in one step
 
+- Any MCP client, as a local stdio server (zero dependencies, Node 18+):
+  `{"mcpServers": {"everysignal": {"command": "npx", "args": ["-y", "github:schoettle-cmd/everysignal-mcp"], "env": {"EVERYSIGNAL_API_KEY": "YOUR_KEY"}}}}`
+
 - Claude Code plugin (MCP server + skill): `/plugin marketplace add schoettle-cmd/everysignal-mcp`, then `/plugin install everysignal@everysignal`, and set `EVERYSIGNAL_API_KEY`.
 - Gemini CLI: `gemini extensions install https://github.com/schoettle-cmd/everysignal-mcp`, and set `EVERYSIGNAL_API_KEY`.
 - Cursor: [Add to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=everysignal&config=eyJ1cmwiOiJodHRwczovL2V2ZXJ5c2lnbmFsLmNvbS9tY3AiLCJoZWFkZXJzIjp7IkF1dGhvcml6YXRpb24iOiJCZWFyZXIgWU9VUl9LRVkifX0=) (then replace YOUR_KEY in ~/.cursor/mcp.json).
