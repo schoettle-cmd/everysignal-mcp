@@ -1,5 +1,7 @@
 # Every Signal MCP server
 
+[![Every Signal MCP server on Glama](https://glama.ai/mcp/servers/schoettle-cmd/everysignal-mcp/badges/score.svg)](https://glama.ai/mcp/servers/schoettle-cmd/everysignal-mcp)
+
 Every Signal is a marketing intelligence API that audits AI-written marketing against real teardowns and measured conversion rates.
 
 Your agent sends a landing page, an email, an ad, a funnel or a domain. Every Signal compares it with teardowns of real companies (their copy, funnels, prices, ads, tracking) and measured conversion rates, and returns a score, findings that name the knowledge-base record behind each claim, concrete fixes and a rewrite. Every figure carries a tag: verified, estimate, inferred or rumour.
