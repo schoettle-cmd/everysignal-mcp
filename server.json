@@ -3,7 +3,7 @@
   "name": "com.everysignal/everysignal",
   "title": "Every Signal",
   "description": "Audits AI-written marketing (copy, landing pages, ads, SEO) against real teardowns and benchmarks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://everysignal.com/connect/",
   "remotes": [
     {
@@ -19,5 +19,9 @@
         }
       ]
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/schoettle-cmd/everysignal-mcp",
+    "source": "github"
+  }
 }
