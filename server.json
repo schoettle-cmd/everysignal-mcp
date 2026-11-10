@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.everysignal/everysignal",
+  "title": "Every Signal",
+  "description": "Audits AI-written marketing (copy, landing pages, ads, SEO) against real teardowns and benchmarks",
+  "version": "1.0.0",
+  "websiteUrl": "https://everysignal.com/connect/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://everysignal.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer followed by your Every Signal API key (create one at https://everysignal.com/app/keys; the first key includes 50 free credits)",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

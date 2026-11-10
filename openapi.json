@@ -1,0 +1,241 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Every Signal API",
+        "version": "1.0",
+        "description": "Marketing intelligence for AI agents: audit AI-written marketing against real teardowns and measured conversion rates, and query the Every Signal knowledge base. Prepaid credits; 1 credit = $0.10."
+    },
+    "servers": [
+        {
+            "url": "https://everysignal.com/api/v1"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "API key from /app/keys (starts es_)"
+            }
+        }
+    },
+    "paths": {
+        "/catalog": {
+            "get": {
+                "summary": "Prices, packs and job kinds (no key needed)",
+                "responses": {
+                    "200": {
+                        "description": "catalog"
+                    }
+                }
+            }
+        },
+        "/balance": {
+            "get": {
+                "summary": "Credit balance and recent ledger",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "balance"
+                    }
+                }
+            }
+        },
+        "/jobs": {
+            "post": {
+                "summary": "Start a job (credits are debited now, refunded if it fails)",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "kind",
+                                    "input"
+                                ],
+                                "properties": {
+                                    "kind": {
+                                        "type": "string",
+                                        "enum": [
+                                            "audit_work",
+                                            "analyze_landing_page",
+                                            "analyze_ads",
+                                            "growth_audit",
+                                            "intel_report"
+                                        ]
+                                    },
+                                    "input": {
+                                        "type": "object",
+                                        "properties": {
+                                            "content": {
+                                                "type": "string",
+                                                "maxLength": 20000,
+                                                "description": "The text your AI wrote (send this or url)"
+                                            },
+                                            "url": {
+                                                "type": "string",
+                                                "description": "A public page to audit (send this or content)"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "copy",
+                                                    "landing_page",
+                                                    "email",
+                                                    "ad",
+                                                    "funnel",
+                                                    "paywall",
+                                                    "other"
+                                                ]
+                                            },
+                                            "sector": {
+                                                "type": "string",
+                                                "description": "KB sector key, e.g. subscription-apps (see kb_sectors)"
+                                            },
+                                            "goal": {
+                                                "type": "string",
+                                                "description": "What the piece must achieve, e.g. 'trial starts from cold Meta traffic'"
+                                            },
+                                            "audience": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "webhook_url": {
+                                        "type": "string",
+                                        "description": "https URL; we POST job.done / job.failed signed with Every-Signal-Signature"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "queued job"
+                    },
+                    "402": {
+                        "description": "not enough credits"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Your recent jobs",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "jobs"
+                    }
+                }
+            }
+        },
+        "/jobs/{id}": {
+            "get": {
+                "summary": "Job status and result",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "job"
+                    }
+                }
+            }
+        },
+        "/kb/{tool}": {
+            "post": {
+                "summary": "Call a KB tool (kb_sectors, kb_brief, kb_playbook free; kb_search, kb_examples, kb_benchmarks, kb_get 1 credit)",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "tool",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "tool output"
+                    }
+                }
+            }
+        },
+        "/reports": {
+            "get": {
+                "summary": "Published teardowns (public summaries)",
+                "responses": {
+                    "200": {
+                        "description": "list"
+                    }
+                }
+            }
+        },
+        "/reports/{slug}": {
+            "get": {
+                "summary": "One teardown: full text with library access, else the public part",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "report"
+                    }
+                }
+            }
+        }
+    }
+}
