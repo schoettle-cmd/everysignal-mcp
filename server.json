@@ -3,7 +3,7 @@
   "name": "com.everysignal/everysignal",
   "title": "Every Signal",
   "description": "Audits AI-written marketing (copy, landing pages, ads, SEO) against real teardowns and benchmarks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://everysignal.com/connect/",
   "remotes": [
     {
@@ -18,6 +18,10 @@
           "format": "string"
         }
       ]
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://everysignal.com/mcp/connect"
     }
   ],
   "repository": {

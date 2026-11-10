@@ -4,7 +4,7 @@ Every Signal is a marketing intelligence API that audits AI-written marketing ag
 
 Your agent sends a landing page, an email, an ad, a funnel or a domain. Every Signal compares it with teardowns of real companies (their copy, funnels, prices, ads, tracking) and measured conversion rates, and returns a score, findings that name the knowledge-base record behind each claim, concrete fixes and a rewrite. Every figure carries a tag: verified, estimate, inferred or rumour.
 
-- Remote MCP server: `https://everysignal.com/mcp` (Streamable HTTP, `Authorization: Bearer <API key>`)
+- Remote MCP server: `https://everysignal.com/mcp` (Streamable HTTP, `Authorization: Bearer <API key>`), or `https://everysignal.com/mcp/connect` with OAuth sign-in
 - REST API: `https://everysignal.com/api/v1` ([OpenAPI](https://everysignal.com/api/v1/openapi.json), [prices](https://everysignal.com/api/v1/catalog))
 - Official MCP registry: `com.everysignal/everysignal`
 - Docs for people: https://everysignal.com/connect/ · for LLMs: https://everysignal.com/llms.txt
@@ -13,6 +13,9 @@ Your agent sends a landing page, an email, an ad, a funnel or a domain. Every Si
 Sign in at https://everysignal.com/app/keys and create a key. The first key on a verified email comes with 50 free credits ($5), enough for an audit. Credits are prepaid (1 credit = $0.10), never expire, and failed jobs are refunded.
 
 ## Connect
+
+Claude.ai, Claude Desktop and ChatGPT (developer mode): add a custom connector with the URL `https://everysignal.com/mcp/connect`. You sign in to Every Signal by email (OAuth, PKCE); no key to paste.
+
 
 Claude Code
 ```sh
