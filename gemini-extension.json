@@ -1,0 +1,12 @@
+{
+  "name": "everysignal",
+  "version": "1.0.0",
+  "description": "Audit AI-written marketing (copy, landing pages, emails, ads, SEO) against teardowns of real companies and measured conversion rates.",
+  "mcpServers": {
+    "everysignal": {
+      "httpUrl": "https://everysignal.com/mcp",
+      "headers": {"Authorization": "Bearer ${EVERYSIGNAL_API_KEY}"}
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

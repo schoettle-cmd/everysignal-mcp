@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "everysignal": {
+      "type": "http",
+      "url": "https://everysignal.com/mcp",
+      "headers": {"Authorization": "Bearer ${EVERYSIGNAL_API_KEY}"}
+    }
+  }
+}

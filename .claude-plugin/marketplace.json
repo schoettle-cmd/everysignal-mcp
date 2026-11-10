@@ -1,0 +1,7 @@
+{
+  "name": "everysignal",
+  "owner": {"name": "Every Signal", "email": "hello@everysignal.com"},
+  "plugins": [
+    {"name": "everysignal", "source": "./", "description": "Every Signal MCP server plus a skill that tells Claude when to audit marketing before it ships."}
+  ]
+}
