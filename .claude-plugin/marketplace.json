@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "everysignal",
-      "source": "./",
+      "source": "./plugin",
       "description": "Every Signal MCP server plus a skill that tells Claude when to audit marketing before it ships."
     }
   ],
